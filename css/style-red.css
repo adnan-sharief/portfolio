@@ -1053,7 +1053,7 @@ footer .credits a {
   }
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 480px) {
   .bg-image-mobile {
       background-image: url('/temp_images/portrait.jpg') !important;
       background-color: rgba(0, 0, 0, 0.6);
