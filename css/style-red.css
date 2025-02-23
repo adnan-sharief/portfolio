@@ -1055,7 +1055,7 @@ footer .credits a {
 
 @media (max-width: 768px) {
   .bg-image-mobile {
-      background-image: url('/temp_images/portrait.jpg') !important;
+      background-image: url('../temp_images/portrait.jpg') !important;
       background-color: rgba(0, 0, 0, 0.6);
       background-size: cover;
       background-repeat: no-repeat;
