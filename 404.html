@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        body {
+            background-color: #24292E;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        p {
+            font-size: 20px;
+        }
+        .btn {
+            background-color: #f44336;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.pathname.endsWith(".html")) {
+                window.history.replaceState(null, "", window.location.pathname.replace(".html", ""));
+            }
+        });
+    </script>
+        
+</head>
+<body>
+    <h1>404 - Page Not Found</h1>
+    <p>Oops! The page you're looking for doesn't exist or is temporarily unavailable.</p>
+    <a href="javascript:history.back()" class="btn">Go Back</a>
+    <a href="index.html" class="btn">Go to Homepage</a>
+</body>
+</html>

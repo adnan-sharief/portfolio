@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ttt-style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <script src="ttt-js.js"></script>
+    <title>Tic-Tac-Toe</title>
+    <link rel="icon" href="temp_images/ttt.png">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.pathname.endsWith(".html")) {
+                window.history.replaceState(null, "", window.location.pathname.replace(".html", ""));
+            }
+        });
+    </script>
+        
+</head>
+<body>
+    <main class="background">
+        <section>
+            <div class="wrapper">       
+                <a href="javascript:history.back()">
+                    <button class="button-4">Back</button></a>
+        </section>
+        <section class="title">
+            <h1>Tic-Tac-Toe</h1>
+        </section>
+        <section class="display">
+            Player <span class="display-player playerX">X</span>'s turn
+        </section>
+        <section class="container">
+            <div id="tile1" class="tile"></div>
+            <div id="tile2" class="tile"></div>
+            <div id="tile3" class="tile"></div>
+            <div id="tile4" class="tile"></div>
+            <div id="tile5" class="tile"></div>
+            <div id="tile6" class="tile"></div>
+            <div id="tile7" class="tile"></div>
+            <div id="tile8" class="tile"></div>
+            <div id="tile9" class="tile"></div>
+        </section>
+        <section class="display announcer hide"></section>
+        <section class="controls">
+            <button id="reset">Reset</button>
+        </section>
+    </main>
+</body>
+</html>
