@@ -1,4 +1,4 @@
-name: Upload entire repo to S3 root
+name: Upload changed files to S3 root (clean version)
 
 on:
   push:
@@ -13,13 +13,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          node-version: 18
 
-      - name: Sync repo to S3 root
+      - name: Install s3-deploy
+        run: npm install -g s3-deploy
+
+      - name: Deploy only changed files to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete --exact-timestamps --exclude ".*" 
+          s3-deploy './**' \
+            --bucket ${{ secrets.S3_BUCKET }} \
+            --cwd . \
+            --region ${{ secrets.AWS_REGION }} \
+            --delete
