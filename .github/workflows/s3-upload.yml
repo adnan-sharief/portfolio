@@ -30,4 +30,5 @@ jobs:
             --bucket ${{ secrets.S3_BUCKET }} \
             --cwd . \
             --region ${{ secrets.AWS_REGION }} \
-            --delete
+            --delete \
+            --no-acl
