@@ -75,6 +75,12 @@
           });
 
           resultDiv.innerHTML = html;
+
+          // Format the analysis summary (if any)
+          if (data.summary) {
+            const formatted = formatTextToHtml(data.summary);
+            resultDiv.innerHTML = formatted + resultDiv.innerHTML;
+          }
         } else {
           resultDiv.innerHTML = `<span style='color:red;'>${data.error || 'Something went wrong'}</span>`;
         }
@@ -106,9 +112,9 @@
         const data = await res.json();
 
         if (res.ok) {
-          // Format response text into paragraphs
-          const formatted = data.feedback.replace(/\n\n+/g, '</p><p>').replace(/\n/g, ' ');
-          feedbackDiv.innerHTML = `<p>${formatted}</p>`;
+          // Format response text into paragraphs and lists
+          const formatted = formatTextToHtml(data.feedback);
+          feedbackDiv.innerHTML = formatted;
         } else {
           feedbackDiv.innerHTML = `<span style='color:red;'>${data.error || 'Error analyzing answer.'}</span>`;
         }
@@ -116,6 +122,22 @@
         console.error(err);
         feedbackDiv.innerHTML = `<span style='color:red;'>Error: ${err.message}</span>`;
       }
+    }
+
+    // Add this helper function at the end of the script
+    function formatTextToHtml(text) {
+      if (!text) return '';
+      // Convert lists
+      let html = text
+        .replace(/(^|\n)([-*]|\d+\.) (.+)/g, function(match, p1, p2, p3) {
+          if (p2 === '-' || p2 === '*') return `${p1}<li>${p3}</li>`;
+          return `${p1}<li>${p3}</li>`;
+        });
+      // Wrap <li> in <ul> if present
+      if (/<li>/.test(html)) html = '<ul>' + html.replace(/(?:\n)?(<li>)/g, '$1') + '</ul>';
+      // Paragraphs
+      html = html.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, ' ');
+      return '<p>' + html + '</p>';
     }
   </script>
 </body>
