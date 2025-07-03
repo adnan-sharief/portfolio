@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Assistant</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background: #f9f9f9; }
+    input, textarea, button { display: block; margin-top: 1rem; width: 100%; padding: 0.5rem; }
+    #result { margin-top: 2rem; background: #fff; padding: 1rem; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { color: #333; }
+    .qa-section { margin-top: 1.5rem; padding: 1rem; background: #eef; border-radius: 8px; }
+    .question { font-weight: bold; margin-bottom: 0.5rem; }
+    .feedback { margin-top: 0.5rem; color: green; font-style: italic; white-space: pre-wrap; line-height: 1.5; background: #e6ffe6; padding: 0.5rem; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>AI Interview Assistant</h1>
+  <label for="resume">Upload your resume (PDF):</label>
+  <input type="file" id="resume" accept="application/pdf">
+
+  <label for="jd">Paste job description:</label>
+  <textarea id="jd" rows="6" placeholder="Paste the job description here..."></textarea>
+
+  <button onclick="analyzeResume()">Analyze</button>
+
+  <div id="result"></div>
+
+  <script>
+    let globalQuestions = [];
+
+    async function analyzeResume() {
+      const resumeInput = document.getElementById('resume');
+      const jdText = document.getElementById('jd').value;
+      const resultDiv = document.getElementById('result');
+
+      if (!resumeInput.files[0]) {
+        alert("Please upload your resume PDF.");
+        return;
+      }
+
+      resultDiv.innerHTML = "<em>Analyzing...</em>";
+
+      const formData = new FormData();
+      formData.append("resume", resumeInput.files[0]);
+      formData.append("jd_text", jdText);
+
+      try {
+        const res = await fetch("https://interviewassistant-bjrn.onrender.com/analyze", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          globalQuestions = data.questions;
+
+          let html = `
+            <p><strong>Match Score:</strong> ${data.score}%</p>
+            <p><strong>Detected Domain:</strong> ${data.domain}</p>
+            <p><strong>Interview Questions:</strong></p>
+          `;
+
+          data.questions.forEach((q, i) => {
+            html += `
+              <div class="qa-section">
+                <div class="question">Q${i+1}: ${q}</div>
+                <textarea id="answer-${i}" placeholder="Type your answer here..."></textarea>
+                <button onclick="submitAnswer(${i})">Submit Answer</button>
+                <div id="feedback-${i}" class="feedback"></div>
+              </div>
+            `;
+          });
+
+          resultDiv.innerHTML = html;
+        } else {
+          resultDiv.innerHTML = `<span style='color:red;'>${data.error || 'Something went wrong'}</span>`;
+        }
+      } catch (err) {
+        console.error(err);
+        resultDiv.innerHTML = `<span style='color:red;'>Error: ${err.message}</span>`;
+      }
+    }
+
+    async function submitAnswer(index) {
+      const question = globalQuestions[index];
+      const answer = document.getElementById(`answer-${index}`).value;
+      const feedbackDiv = document.getElementById(`feedback-${index}`);
+
+      if (!answer.trim()) {
+        alert("Please type an answer.");
+        return;
+      }
+
+      feedbackDiv.innerHTML = "<em>Analyzing your answer...</em>";
+
+      try {
+        const res = await fetch("https://interviewassistant-bjrn.onrender.com/analyze-answer", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answer, question })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          // Format response text into paragraphs
+          const formatted = data.feedback.replace(/\n\n+/g, '</p><p>').replace(/\n/g, ' ');
+          feedbackDiv.innerHTML = `<p>${formatted}</p>`;
+        } else {
+          feedbackDiv.innerHTML = `<span style='color:red;'>${data.error || 'Error analyzing answer.'}</span>`;
+        }
+      } catch (err) {
+        console.error(err);
+        feedbackDiv.innerHTML = `<span style='color:red;'>Error: ${err.message}</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
