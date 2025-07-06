@@ -44,10 +44,6 @@ a:hover {
 .paralax-mf,
 .service-box,
 .work-box,
-.card-blog {
-  box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
-}
-
 .box-shadow-a,
 .button:hover {
   box-shadow: 0 0 0 4px #f5dcdc;
@@ -188,9 +184,6 @@ a:hover {
   z-index: 2;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
-.lastImg {
-  max-width: 70%;
-}
 
 
 /*------/ Socials /------*/
@@ -222,18 +215,6 @@ a:hover {
 }
 
 /*------/ Ul resect /------*/
-
-.ul-resect,
-.socials ul,
-.list-ico,
-.blog-wrapper .post-meta ul,
-.box-comments .list-comments,
-.widget-sidebar .list-sidebar,
-.widget-tags ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
 
 .list-ico {
   line-height: 2;
@@ -287,32 +268,6 @@ a:hover {
 .owl-theme .owl-dots .owl-dot.active span {
   background-color: #1B1B1B;
   width: 25px;
-}
-
-/*--/ Scrolltop s /--*/
-
-.scrolltop-mf {
-  position: relative;
-  display: none;
-}
-
-.scrolltop-mf span {
-  z-index: 999;
-  position: fixed;
-  width: 42px;
-  height: 42px;
-  background-color: #be3131;
-  opacity: .7;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  text-align: center;
-  color: #fff;
-  top: auto;
-  left: auto;
-  right: 30px;
-  bottom: 50px;
-  cursor: pointer;
-  border-radius: 50%;
 }
 
 /* Back to top button */
@@ -631,36 +586,6 @@ a:hover {
   display: none;
 }
 
-.intro-single {
-  height: 350px;
-}
-
-.intro-single .intro-content {
-  margin-top: 30px;
-}
-
-.intro-single .intro-title {
-  text-transform: uppercase;
-  font-size: 3rem;
-}
-
-.intro-single .breadcrumb {
-  background-color: transparent;
-  color: #be3131;
-}
-
-.intro-single .breadcrumb .breadcrumb-item:before {
-  color: #f5dcdc;
-}
-
-.intro-single .breadcrumb .breadcrumb-item.active {
-  color: #f5dcdc;
-}
-
-.intro-single .breadcrumb a {
-  color: #fff;
-}
-
 /*======================================
 //--//-->   ABOUT
 ======================================*/
@@ -786,62 +711,6 @@ a:hover {
   font-size: 1.2rem;
 }
 
-
-
-
-
-/*------/ Sidebar /------*/
-
-.widget-sidebar .sidebar-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  border-left: 5px solid #be3131;
-  padding-left: 15px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.widget-sidebar .list-sidebar li {
-  position: relative;
-  padding: 6px 0 6px 24px;
-}
-
-.widget-sidebar .list-sidebar li:before {
-  position: absolute;
-  content: "";
-  width: 10px;
-  height: 1px;
-  left: 0;
-  background-color: #be3131;
-  top: 20px;
-}
-
-.sidebar-search input {
-  background-color: #fff;
-  border-radius: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.sidebar-search .btn-search {
-  background-color: #be3131;
-  border-color: #be3131;
-  border-radius: 0;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.widget-tags ul li {
-  display: inline-block;
-  background-color: #be3131;
-  padding: .2rem .6rem;
-  margin-bottom: .5rem;
-  border-radius: 15px;
-}
-
-.widget-tags ul li a {
-  color: #fff;
-}
-
 /*======================================
 //--//-->   CONTACT
 ======================================*/
@@ -906,14 +775,6 @@ footer .credits a {
   display: block;
 }
 
-.validation {
-  color: red;
-  display: none;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-size: 13px;
-}
-
 /*======================================
 //--//-->   BUTTON
 ======================================*/
@@ -966,20 +827,10 @@ footer .credits a {
   border-radius: .3rem;
 }
 
-@media (min-width: 577px) {
-  .counter-box {
-    margin-bottom: 1.8rem;
-  }
-}
-
 @media (min-width: 767px) {
   .about-mf .box-pl2 {
     margin-top: 3rem;
     padding-left: 0rem;
-  }
-
-  .card-blog {
-    margin-bottom: 3rem;
   }
 
   .contact-mf .box-pl2 {
@@ -1011,40 +862,6 @@ footer .credits a {
     font-size: 2.5rem;
   }
 
-  .intro-single .intro-title {
-    font-size: 3.5rem;
-  }
-
-  .testimonial-box .description {
-    padding: 0 5rem;
-  }
-
-  .post-box,
-  .form-comments,
-  .box-comments,
-  .widget-sidebar {
-    padding: 3rem;
-  }
-
-  .blog-wrapper .article-title {
-    font-size: 1.9rem;
-  }
-
-  .box-comments .list-comments .comment-author {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .testimonial-box .description {
-    padding: 0 8rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .testimonial-box .description {
-    padding: 0 13rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1063,5 +880,3 @@ footer .credits a {
       opacity: 0.9;
   }
 }
-
-
