@@ -22,8 +22,18 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style-red.css" rel="stylesheet">
-    
-
+  <style>
+    /* Add space between navbar and intro title */
+    #home.intro {
+      padding-top: 100px;
+    }
+    @media (max-width: 768px) {
+      #home.intro {
+        padding-top: 70px;
+      }
+    }
+  </style>
+  
 </head>
 
 <body id="page-top">
@@ -47,7 +57,7 @@
             <a class="nav-link js-scroll" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Portfolio</a>
+            <a class="nav-link js-scroll" href="#work">Projects</a>
           </li>
           
           <li class="nav-item">
@@ -85,30 +95,35 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
-                      <img src="temp_images/profilepic.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                      <img src="temp_images/profilepic.jpg" class="img-fluid rounded b-shadow-a" alt="Profile Picture">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
                       <p><span class="title-s">College: </span> <span>Aurora's PG College</span></p>
                       <p><span class="title-s">Major: </span> <span>Masters in Computer Applications </span></p>
-                      <p><span class="title-s">Email: </span> <span>adnanworks247@gmail.com</span></p>
+                      <p><span class="title-s">Email: </span> <span>adnanshareef700@gmail.com</span></p>
                     </div>
+                    
                   </div>
                 </div>
                 <div class="skill-mf">
                   <p class="title-s">Skills</p>
+                  <span>Python, </span>
                   <span>AWS, </span>
                   <span>Docker, </span>
                   <span>Ansible, </span>
                   <span>Kubernetes, </span>
                   <span>Jenkins, </span>
                   <span>Terraform, </span>
-                  <span>Python, </span>
+                  <span>HTML, </span>
+                  <span>CSS/JS, </span>
+                  <span>Git/GitHub, </span>
                   <span>Java, </span>
-                  <span>HTML/CSS, </span>
-                  <span>JS, </span>
-                  <span>Git/GitHub </span>
+                  <span>MySQL </span>
+
+                  <br><br>
+                  <a href="adnan-resume-j25.pdf" download class="button button-a button-big button-rouded" style="margin-top: 10px;">Download Resume</a>
                 </div>
               </div>
               <div class="col-md-6">
@@ -119,7 +134,7 @@
                     </h5>
                   </div>
                   <p class="lead">
-                    I'm Adnan, a passionate Programming enthusiast, currently pursuing my Master's in Computer Applications at Aurora's PG College, slated for completion in May 2025. With a solid foundation in Computer Applications from my Bachelor's degree at OU, Hyderabad. I've honed my skills in various areas such as DSA and Web Technologies.
+                    A passionate Programming enthusiast, currently pursuing my Master's in Computer Applications at Aurora's PG College, slated for completion in May 2025. With a solid foundation in Computer Applications from my Bachelor's degree at OU, Hyderabad. I've honed my skills in various areas such as DSA, Web Technologies and DevOps.
                   </p>
                   <p class="lead">
                     I thrive on challenges and opportunities to continuously learn.
@@ -141,7 +156,7 @@
         <div class="col-sm-12">
           <div class="title-box text-center">
             <h3 class="title-a">
-              Portfolio
+              Projects
             </h3>
             <p class="subtitle-a">
               I have worked on the following projects:
@@ -160,7 +175,7 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Basic Calculator</h2>
+                    <h2 class="w-title">Basic Calculator<br><br></h2>
                     <div class="w-more">
                       <span class="w-ctegory">Mini project</span>
                     </div>
@@ -184,7 +199,7 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Tic Tac Toe </h2>
+                    <h2 class="w-title">Tic Tac Toe <br><br></h2>
                     <div class="w-more">
                       <span class="w-ctegory">Mini game</span>
                     </div>
@@ -211,6 +226,30 @@
                     <h2 class="w-title">Disease Diagnosis Chatbot </h2>
                     <div class="w-more">
                       <span class="w-ctegory">Mini project</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="https://adnan-sharief.github.io/portfolio/InterviewAssist/">
+              <div class="work-img">
+                <img src="temp_images/assist.png" alt="Assist image" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">AI Interview Assistant </h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Major project</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -300,7 +339,7 @@
           <div class="service-content">
             <h2 class="s-title">Games</h2>
             <p class="s-description text-justify">
-              Not just FPS, but also strategic games like chess.
+              Chess, Basket Ball, Rocket League and some online FPS.
             </p>
           </div>
         </div>
@@ -339,8 +378,7 @@
                     <div>
                       <form action="https://formsubmit.co/f2f4f3dca0801bed021c7b7f4d7bf775" method="POST" class="contactForm">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://www.advaket.shop/thank-you.html">
-                        
+                        <input type="hidden" name="_next" value="https://adnan-sharief.github.io/portfolio/thank-you.html">                        
                         <div id="sendmessage" style="display: none;">Your message has been sent. Thank you!</div>
                         <div id="errormessage" style="display: none;"></div>
                         
@@ -368,6 +406,8 @@
                             <div class="col-md-12">
                                 <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
                             </div>
+                            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="adnanshareef700" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/adnanshareef700?trk=profile-badge">Mohammed Adnan Sharief</a></div>
+              
                         </div>
                     </form>
                     
@@ -385,7 +425,6 @@
                       </p>
                       <ul class="list-ico">
                         <li><span class="ion-ios-location"></span>Hyderabad, India </li>
-                        <li><span class="ion-ios-telephone"></span>(+91) ********** </li>
                         <li><span class="ion-email"></span><a href="mailto:adnanshareef700@gmail.com">adnanshareef700@gmail.com</a> </li>
                       </ul>
                     </div>
@@ -395,7 +434,9 @@
                       <li><a href="https://www.linkedin.com/in/adnanshareef700"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
                       </ul>
                     </div>
+                    <a href="adnan-resume-j25.pdf" download class="button button-a button-big button-rouded" style="margin-top: 10px;">Download Resume</a>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -451,6 +492,7 @@
         window.location.href = '/404.html';
     });
   </script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     
 
 </body>
